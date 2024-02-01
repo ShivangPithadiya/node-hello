@@ -48,3 +48,4 @@ jobs:
       run: |
         docker build -t raj456/nodeci:latest \
           --build-arg MY_VARIABLE=${MY_VARIABLE} \
+          .
