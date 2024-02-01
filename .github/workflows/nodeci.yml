@@ -46,3 +46,6 @@ jobs:
 
     - name: Push Docker Image to Docker Hub
       run: docker push raj456/nodeci:latest
+    
+    - name: Run container
+      run: docker run -e NAME=${{ env.name }} -e SURNAME=${{ env.surname }} raj456/nodeci:${{ env.tag }}
