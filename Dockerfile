@@ -3,7 +3,7 @@ FROM node:14
 ARG NAMEEE
 
 
-ENV NAMEEE=${MY_VARIABLE}
+ENV MY_VARIABLE=${MY_VARIABLE}
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
