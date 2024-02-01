@@ -45,4 +45,6 @@ jobs:
       run: docker push raj456/nodeci:latest
     
     - name: Run container
-      run: docker build --build-arg MY_VARIABLE="${{ env.MY_VARIABLE }}" -t raj456/nodeci .
+      run: |
+        docker build -t raj456/nodeci:latest \
+          --build-arg MY_VARIABLE=${MY_VARIABLE} \
