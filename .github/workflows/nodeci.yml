@@ -20,8 +20,8 @@ jobs:
       matrix:
         node-version: ['14.x', '16.x', '18.x']
     env:
-      name: ${{ variables.NAME }}
-      surname: ${{ variables.SURNAME }}
+      name: ${{ Variables.NAME }}
+      surname: ${{ Variables.SURNAME }}
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
