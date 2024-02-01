@@ -42,4 +42,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASS }}
 
     - name: Push Docker Image to Docker Hub
-      run: docker push raj456/nodeci:${{ matrix.node-version }}
+      run: docker push raj456/nodeci:latest
