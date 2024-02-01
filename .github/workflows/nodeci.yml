@@ -20,8 +20,9 @@ jobs:
       matrix:
         node-version: ['14.x', '16.x', '18.x']
     env:
-      name: ${{ Variables.NAME }}
-      surname: ${{ Variables.SURNAME }}
+      name: raj
+      surname: chauhan
+      tag: latest
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
