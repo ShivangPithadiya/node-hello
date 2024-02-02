@@ -43,6 +43,13 @@ jobs:
 
     - name: Push Docker Image to Docker Hub
       run: docker push raj456/nodeci:latest
-    
+
+    - name: Get SHA Digest
+      run: |
+        SHA_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' raj456/nodeci:latest)
+        echo "SHA Digest: $SHA_DIGEST"
+        
     - name: Run container
       run:  docker build --build-arg MY_VARIABLE="${{ env.MY_VARIABLE }}" -t raj456/nodeci:latest .
+
+     
