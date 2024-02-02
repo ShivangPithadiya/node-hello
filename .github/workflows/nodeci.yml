@@ -50,6 +50,14 @@ jobs:
         echo "SHA Digest: $SHA_DIGEST"
         echo "$SHA_DIGEST" > $GITHUB_WORKSPACE/sha_digest.txt
 
+    - name: Commit SHA Digest File
+      run: |
+        git config --global user.email "rajchauhaninventyv@gmail.com"
+        git config --global user.name "Raj-inventyv"
+        git add $GITHUB_WORKSPACE/sha_digest.txt
+        git commit -m "Add SHA Digest file"
+        git push
+
     - name: debug
       run: |
         ls -al
