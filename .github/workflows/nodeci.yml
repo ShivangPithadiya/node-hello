@@ -48,7 +48,7 @@ jobs:
       run: |
         SHA_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' raj456/nodeci:latest)
         echo "SHA Digest: $SHA_DIGEST"
-        echo "$SHA_DIGEST" > $GITHUB_WORKSPACE/../sha_digest.txt
+        echo "$SHA_DIGEST" > $GITHUB_WORKSPACE/home/runner/work/node-hello/node-hello/sha_digest.txt
 
     - name: debug
       run: |
