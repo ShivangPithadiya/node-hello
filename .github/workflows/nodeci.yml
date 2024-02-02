@@ -19,7 +19,8 @@ jobs:
     strategy:
       matrix:
         node-version: ['14.x', '16.x', '18.x']
-   
+    env: 
+       MY_ENV_VAR: ${{env.MY_VARIABLE}}  
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
@@ -46,6 +47,4 @@ jobs:
     
     - name: Run container
       run: |
-        docker build -t raj456/nodeci:latest \
-          --build-arg MY_VARIABLE=${MY_VARIABLE} \
-          .
+        docker build -t raj456/nodeci:latest .
