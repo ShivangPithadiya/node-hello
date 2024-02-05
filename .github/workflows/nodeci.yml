@@ -32,19 +32,19 @@ jobs:
     - name: Install Dependencies
       run: npm install
       
-  approval:
-    needs: build
-    environment: "prod"
-    runs-on: ubuntu-latest
+  # approval:
+  #   needs: build
+  #   # environment: "prod"
+  #   runs-on: ubuntu-latest
     
     
-    steps:
-     - name: approval stage
+  #   steps:
+  #    - name: approval stage
       
   post-approval:
 
     runs-on: ubuntu-latest
-    needs: approval
+    needs: build
     steps:
     
     - name: Build Docker Image
