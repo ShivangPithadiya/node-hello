@@ -1,9 +1,9 @@
 # Use an official Node.js runtime as a base image
 FROM node:14
-ARG NAMEEE
+# ARG NAMEEE
 
 
-ENV MY_VARIABLE=${MY_VARIABLE}
+# ENV MY_VARIABLE=${MY_VARIABLE}
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
