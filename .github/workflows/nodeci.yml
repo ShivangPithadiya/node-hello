@@ -35,7 +35,7 @@ jobs:
   approval:
 
     runs-on: ubuntu-latest
-    environment: "prod"
+    # environment: "prod"
     needs: build
     steps:
      - name: approval stage
