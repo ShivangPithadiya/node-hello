@@ -33,13 +33,15 @@ jobs:
     - name: Install Dependencies
       run: npm install
 
+    - name: Build Docker Image
+      run: docker build -t shivang1012/node-hello .
+
   approv:
     needs: build
     runs-on: ubuntu-latest
     environment: "prod"
     steps:
-      - name: Build Docker Image
-        run: docker build -t shivang1012/node-hello .
+      
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
