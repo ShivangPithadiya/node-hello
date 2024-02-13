@@ -37,9 +37,9 @@ jobs:
         node-version: ['16.x']
      
     steps:
-    - name: greeting to user
-      run: |
-       echo " Good Morning  ${{ github.event.inputs.choice}} !"
+    # - name: greeting to user
+    #   run: |
+    #    echo " Good Morning  ${{ github.event.inputs.choice}} !"
     
     - name: Checkout Repository
       uses: actions/checkout@v3
@@ -74,11 +74,7 @@ jobs:
           SHA_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' shivang1012/node-hello)
           echo "SHA Digest: $SHA_DIGEST"
           echo "$SHA_DIGEST" > $GITHUB_WORKSPACE/sha_digest.txt
-    - name: Create Artifact of SHA Digest File
-      uses: actions/upload-artifact@v3
-      with:
-        name: sha_digest
-        path: $GITHUB_WORKSPACE/sha_digest.txt
+          
 
     - name: Commit SHA Digest File
       run: |
@@ -87,6 +83,12 @@ jobs:
         git add $GITHUB_WORKSPACE/sha_digest.txt
         git commit -m "Add SHA Digest file"
         git push
+
+    - name: Create Artifact of SHA Digest File
+      uses: actions/upload-artifact@v3
+      with:
+        name: sha_digest
+        path: $GITHUB_WORKSPACE/sha_digest.txt
   
     - name: debug
       run: |
