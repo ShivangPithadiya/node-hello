@@ -91,13 +91,13 @@ jobs:
     - name: Create Artifact of SHA Digest File
       uses: actions/upload-artifact@v3
       with:
-        name: sha_digest
+        name: sha_digestttt
         path: ./sha_digest.txt
 
     - name: Download SHA Digest Artifact
       uses: actions/download-artifact@v3
       with:
-          name: sha_digesttt
+          name: sha_digestttt
           path: $GITHUB_WORKSPACE
   
     - name: debug
