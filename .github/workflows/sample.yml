@@ -26,7 +26,7 @@ jobs:
 
     - name: Download SHA Digest Artifact
       run: |
-       gh run download 7885789632 --artifact sha_digestttt --directory ./artifacts
+        gh run download 7885789632 --name sha_digestttt --dir ./artifacts
       # run: |
       #   curl -sSfL \
       #     -o ./artifacts/sha_digestttt.zip \
