@@ -84,6 +84,10 @@ jobs:
         git commit -m "Add SHA Digest file"
         git push
 
+    - name: Debug directory contents
+      run: |
+          ls -al $GITHUB_WORKSPACE
+
     - name: Create Artifact of SHA Digest File
       uses: actions/upload-artifact@v3
       with:
