@@ -92,9 +92,7 @@ jobs:
         name: sha_digestttt
         path: ./sha_digest.txt
 
-    - name: Debug directory contents
-      run: |
-          ls -al $GITHUB_WORKSPACE
+    
 
 
     - name: Download SHA Digest Artifact
@@ -102,6 +100,13 @@ jobs:
       with:
           name: sha_digestttt
           path: $GITHUB_WORKSPACE
+
+
+    - name: Debug directory contents
+      run: |
+          pwd
+          ls -al $GITHUB_WORKSPACE
+          
 
     - name: Commit and Push Artifact
       run: |
