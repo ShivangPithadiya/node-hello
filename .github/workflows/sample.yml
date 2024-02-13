@@ -20,9 +20,9 @@ jobs:
           ls -al ./artifacts
           pwd
 
-    - name: Create artifacts folder (if missing)
-      run: |
-        mkdir -p ./artifacts
+    # - name: Create artifacts folder (if missing)
+    #   run: |
+    #     mkdir -p ./artifacts
 
     - name: Download SHA Digest Artifact
       uses: actions/download-artifact@v3
