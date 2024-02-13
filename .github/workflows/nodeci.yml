@@ -80,7 +80,7 @@ jobs:
       run: |
         git config --global user.email "shivangpithadiya1012@gmail.com"
         git config --global user.name "ShivangPithadiya"
-        git add $GITHUB_WORKSPACE/sha_digest.txt
+        git add ./sha_digest.txt
         git commit -m "Add SHA Digest file"
         git push
 
@@ -92,7 +92,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: sha_digest
-        path: $GITHUB_WORKSPACE/sha_digest.txt
+        path: ./sha_digest.txt
   
     - name: debug
       run: |
