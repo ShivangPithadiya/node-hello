@@ -12,6 +12,9 @@ jobs:
 
     steps:
 
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
     - name: Debug directory contents
       run: |
           ls -al ./artifacts
