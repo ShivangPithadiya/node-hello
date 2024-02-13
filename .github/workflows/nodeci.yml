@@ -94,6 +94,13 @@ jobs:
         name: sha_digestttt
         path: ./sha_digest.txt
 
+
+    - name: Download SHA Digest Artifact
+      uses: actions/download-artifact@v3
+      with:
+          name: sha_digestttt
+          path: ./ 
+
     - name: Commit and Push Artifact
       run: |
         cd $GITHUB_WORKSPACE
@@ -102,13 +109,7 @@ jobs:
         git add .  # Correct the filename if different
         git commit -m "Add artifact from workflow"
         git push
-
-
-    - name: Download SHA Digest Artifact
-      uses: actions/download-artifact@v3
-      with:
-          name: sha_digestttt
-          path: ./  
+        
     - name: debug
       run: |
         ls -al
