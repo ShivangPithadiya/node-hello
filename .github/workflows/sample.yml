@@ -1,0 +1,35 @@
+name: Sample Workflow Using SHA Digest
+
+on:
+  workflow_dispatch:
+
+jobs:
+  use_sha_digest:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+     - name: Create artifacts folder (if missing)
+       run: |
+        mkdir -p ./artifacts
+
+     - name: Download SHA Digest Artifact
+       uses: actions/download-artifact@v3
+       with:
+          name: sha_digestttt
+          path: ./artifacts
+
+
+     - name: Debug directory contents
+       run: |
+          ls -al ./artifacts
+          pwd
+          
+
+     - name: Commit and Push Artifact
+       run: |
+        pwd
+        git add ./  # Correct the filename if different
+        git commit -m "Add artifact from workflow"
+        git push
