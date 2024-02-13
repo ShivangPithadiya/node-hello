@@ -73,7 +73,7 @@ jobs:
       run: |
           SHA_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' shivang1012/node-hello)
           echo "SHA Digest: $SHA_DIGEST"
-          echo "$SHA_DIGEST" > $GITHUB_WORKSPACE/sha_digest.txt
+          echo "$SHA_DIGEST" > ./sha_digest.txt
           
 
     - name: Commit SHA Digest File
