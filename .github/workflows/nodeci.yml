@@ -12,11 +12,11 @@ name: CI for Node.js
 #       - "master"
 on:
  workflow_dispatch:
-    inputs:
-      customName:
-       description: Add name for custom build
-       type: string
-       required: true
+    # inputs:
+    #   customName:
+    #    description: Add name for custom build
+    #    type: string
+    #    required: true
 
 jobs:
   build:
