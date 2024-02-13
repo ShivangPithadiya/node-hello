@@ -64,12 +64,16 @@ jobs:
     - name: Push Docker Image to Docker Hub
       run: docker push shivang1012/node-hello
 
+    # - name: Get SHA Digest
+    #   run: |
+    #     SHA_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' shivang1012/node-hello)
+    #     echo "SHA Digest: $SHA_DIGEST"
+    #     echo "$SHA_DIGEST" > $GITHUB_WORKSPACE/sha_digest.txt
     - name: Get SHA Digest
       run: |
-        SHA_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' shivang1012/node-hello)
-        echo "SHA Digest: $SHA_DIGEST"
-        echo "$SHA_DIGEST" > $GITHUB_WORKSPACE/sha_digest.txt
-
+          SHA_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' shivang1012/node-hello)
+          echo "SHA Digest: $SHA_DIGEST"
+          echo "$SHA_DIGEST" > $GITHUB_WORKSPACE/sha_digest.txt
     - name: Create Artifact of SHA Digest File
       uses: actions/upload-artifact@v3
       with:
