@@ -2,7 +2,7 @@ name: Sample Workflow Using SHA Digest
 
 on:
   workflow_run:
-    workflows: ["Nodeci"]
+    workflows: ["CI for Node.js"]
     types:
       - completed
 
