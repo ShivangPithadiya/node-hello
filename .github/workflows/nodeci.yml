@@ -3,28 +3,28 @@
 
 name: CI for Node.js
 
-# on:
-#   push:
-#     branches:
-#       - "master"
-#   pull_request:
-#     branches:
-#       - "master"
 on:
- workflow_dispatch:
-    inputs:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
+# on:
+ # workflow_dispatch:
+ #    inputs:
       # firstName:
       #  description: enter your first name
       #  type: string
       #  required: true
-      choice:
-        description: 'Select an option'
-        required: true
-        type: choice
-        options:
-          - Option 1
-          - Option 2
-          - Option 3
+      # choice:
+      #   description: 'Select an option'
+      #   required: true
+      #   type: choice
+      #   options:
+      #     - Option 1
+      #     - Option 2
+      #     - Option 3
 
 jobs:
   build:
@@ -69,6 +69,12 @@ jobs:
         SHA_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' shivang1012/node-hello)
         echo "SHA Digest: $SHA_DIGEST"
         echo "$SHA_DIGEST" > $GITHUB_WORKSPACE/sha_digest.txt
+
+    - name: Create Artifact of SHA Digest File
+      uses: actions/upload-artifact@v3
+      with:
+        name: sha_digest
+        path: $GITHUB_WORKSPACE/sha_digest.txt
 
     - name: Commit SHA Digest File
       run: |
