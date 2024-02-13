@@ -73,14 +73,14 @@ jobs:
       run: |
           SHA_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' shivang1012/node-hello)
           echo "SHA Digest: $SHA_DIGEST"
-          echo "$SHA_DIGEST" > ./sha_digest.txt
+          echo "$SHA_DIGEST" > $GITHUB_WORKSPACE/sha_digest.txt
           
 
     - name: Commit SHA Digest File
       run: |
         git config --global user.email "shivangpithadiya1012@gmail.com"
         git config --global user.name "ShivangPithadiya"
-        git add ./sha_digest.txt
+        git add $GITHUB_WORKSPACE/sha_digest.txt
         git commit -m "Add SHA Digest file"
         git push
 
@@ -90,7 +90,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: sha_digestttt
-        path: ./sha_digest.txt
+        path: $GITHUB_WORKSPACE/sha_digest.txt
     
 
 
@@ -98,19 +98,19 @@ jobs:
       uses: actions/download-artifact@v3
       with:
           name: sha_digestttt
-          path: ./
+          path: $GITHUB_WORKSPACE/
 
 
     - name: Debug directory contents
       run: |
           pwd
-          ls -al 
+          ls -al $GITHUB_WORKSPACE/
           
 
     - name: Commit and Push Artifact
       run: |
         pwd
-        git add ./sha_digestttt  # Correct the filename if different
+        git add $GITHUB_WORKSPACE/  # Correct the filename if different
         git commit -m "Add artifact from workflow"
         git push
         
