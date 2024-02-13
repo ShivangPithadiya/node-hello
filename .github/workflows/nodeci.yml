@@ -93,6 +93,12 @@ jobs:
       with:
         name: sha_digest
         path: ./sha_digest.txt
+
+    - name: Download SHA Digest Artifact
+      uses: actions/download-artifact@v3
+      with:
+          name: sha_digesttt
+          path: $GITHUB_WORKSPACE
   
     - name: debug
       run: |
