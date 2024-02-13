@@ -13,10 +13,18 @@ name: CI for Node.js
 on:
  workflow_dispatch:
     inputs:
-      firstName:
-       description: enter your first name
-       type: string
-       required: true
+      # firstName:
+      #  description: enter your first name
+      #  type: string
+      #  required: true
+      choice:
+        description: 'Select an option'
+        required: true
+        type: choice
+        options:
+          - Option 1
+          - Option 2
+          - Option 3
 
 jobs:
   build:
@@ -31,7 +39,7 @@ jobs:
     steps:
     - name: greeting to user
       run: |
-       echo " Good Morning  ${{ github.event.inputs.firstName}} !"
+       echo " Good Morning  ${{ github.event.inputs.choice}} !"
     
     - name: Checkout Repository
       uses: actions/checkout@v3
