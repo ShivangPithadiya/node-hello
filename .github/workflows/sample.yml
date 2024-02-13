@@ -10,6 +10,11 @@ jobs:
 
     steps:
 
+    - name: Debug directory contents
+      run: |
+          ls -al ./artifacts
+          pwd
+
      - name: Create artifacts folder (if missing)
        run: |
         mkdir -p ./artifacts
@@ -21,10 +26,7 @@ jobs:
           path: ./artifacts
 
 
-     - name: Debug directory contents
-       run: |
-          ls -al ./artifacts
-          pwd
+     
           
 
      - name: Commit and Push Artifact
