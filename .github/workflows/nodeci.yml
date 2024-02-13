@@ -3,14 +3,14 @@
 
 name: CI for Node.js
 
- on:
+# on:
 #   push:
 #     branches:
 #       - "master"
 #   pull_request:
 #     branches:
 #       - "master"
-
+on:
  workflow_dispatch:
     inputs:
       customName:
