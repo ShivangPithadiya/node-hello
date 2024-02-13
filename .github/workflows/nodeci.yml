@@ -90,7 +90,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: sha_digestttt
-        path: $GITHUB_WORKSPACE/sha_digest.txt
+        path: ./sha_digest.txt
     
 
 
@@ -98,19 +98,19 @@ jobs:
       uses: actions/download-artifact@v3
       with:
           name: sha_digestttt
-          path: $GITHUB_WORKSPACE/
+          path: ./
 
 
     - name: Debug directory contents
       run: |
+          ls -al ./
           pwd
-          ls -al $GITHUB_WORKSPACE/
           
 
     - name: Commit and Push Artifact
       run: |
         pwd
-        git add $GITHUB_WORKSPACE/  # Correct the filename if different
+        git add ./  # Correct the filename if different
         git commit -m "Add artifact from workflow"
         git push
         
