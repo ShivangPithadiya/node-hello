@@ -5,7 +5,6 @@ name: Publish message to Pub/Sub
 on: push # Trigger on push events to any branch
 
 jobs:
-  publish-message:
     runs-on: ubuntu-latest
     steps:
 
