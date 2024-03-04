@@ -23,7 +23,4 @@ jobs:
 
       - name: Publish message to Pub/Sub
         run: |
-          gcloud pubsub topics publish Docker_registory \
-            --message='{"key1": "value1", "key2": "value2"}' \
-            --attributes="attribute1=valueA,attribute2=valueB"
-
+         gcloud pubsub topics publish Docker_registory --message='{"branch":"main","commit":"${{ github.sha }}"}'
