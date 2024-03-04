@@ -1,0 +1,25 @@
+
+# xw
+name: Publish message to Pub/Sub
+
+on: push # Trigger on push events to any branch
+
+jobs:
+  publish-message:
+    runs-on: ubuntu-latest
+    steps:
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+      - name: Set up Google Cloud
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          project_id: pub-sub-416205
+          export_default_credentials: true
+
+      - name: Publish message to Pub/Sub
+        run: |
+          gcloud pubsub topics publish Docker_registory --message='test'
