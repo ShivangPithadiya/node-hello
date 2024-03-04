@@ -16,9 +16,7 @@ jobs:
       - name: Set up Google Cloud
         uses: google-github-actions/setup-gcloud@v2
         with:
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          project_id: pub-sub-416205
-          export_default_credentials: true
+          project_id: pub-sub-416205 
 
       - name: Publish message to Pub/Sub
         run: |
