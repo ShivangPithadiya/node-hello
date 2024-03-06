@@ -23,4 +23,4 @@ jobs:
 
       - name: Publish message to Pub/Sub
         run: |
-          gcloud pubsub topics publish Email-notify --message="hello from shivang"
+          gcloud pubsub topics publish Email-notify --message='{"name:shivang"}'
