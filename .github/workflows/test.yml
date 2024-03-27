@@ -23,4 +23,4 @@ jobs:
 
       - name: Publish message to Pub/Sub
         run: |
-          gcloud pubsub topics publish Email-notify --message='{"test":"test"}'
+          gcloud pubsub topics publish cicd --message='{"test":"test"}'
