@@ -17,14 +17,14 @@ on:
        description: enter your first name
        type: string
        required: true
-      # choice:
-      #   description: 'Select an option'
-      #   required: true
-      #   type: choice
-      #   options:
-      #     - Option 1
-      #     - Option 2
-      #     - Option 3
+       choice:
+        description: 'Select an option'
+        required: true
+        type: choice
+        options:
+          - Option 1
+          - Option 2
+          - Option 3
 
 jobs:
   build:
@@ -37,9 +37,9 @@ jobs:
         node-version: ['16.x']
      
     steps:
-    # - name: greeting to user
-    #   run: |
-    #    echo " Good Morning  ${{ github.event.inputs.choice}} !"
+    - name: greeting to user
+      run: |
+       echo " Good Morning  ${{ github.event.inputs.choice}} !"
     
     - name: Checkout Repository
       uses: actions/checkout@v3
